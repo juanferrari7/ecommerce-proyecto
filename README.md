@@ -1,4 +1,7 @@
 # E-commerce Proyecto
+
+¡¡¡ESTE README FUE CREADO CON CHATGPT, LO TERMINARE DE MODIFICAR CUANDO TERMINE DE PROGRAMAR LA TIENDA ONLINE!!!
+
 🛒 E-commerce para Emprendimiento de Ropa
 
 Proyecto desarrollado como parte de las Prácticas Profesionalizantes.
@@ -10,11 +13,10 @@ Frontend: React + Vite (o CRA, según uses), HTML, CSS, JavaScript.
 
 Backend: Node.js + Express.
 
-Base de datos: JSON (para prototipo) / MongoDB/MySQL (si lo extendés).
+Base de datos: JSON (para prototipo) / PostgreSQL (si lo extendés).
 
 Control de versiones: Git + GitHub.
 
-Deploy: Vercel/Netlify (frontend) y Render/Railway (backend).
 
 📂 Estructura del repositorio
 ecommerce-proyecto/
