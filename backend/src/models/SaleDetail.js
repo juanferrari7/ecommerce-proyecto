@@ -1,0 +1,29 @@
+import { DataTypes } from "sequelize";
+
+export default (sequelize) => {
+  const SaleDetail = sequelize.define(
+    "SaleDetail",
+    {
+      id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
+      },
+      quantity: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      subtotal: {
+        type: DataTypes.DECIMAL(10, 2),
+        allowNull: false,
+      },
+    },
+    {
+      tableName: "sale_details",
+      timestamps: false,
+      underscored: true,
+    }
+  );
+
+  return SaleDetail;
+};
