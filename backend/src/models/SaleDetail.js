@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 
 export default (sequelize) => {
-  const SaleDetail = sequelize.define(
+  return sequelize.define(
     "SaleDetail",
     {
       id: {
@@ -25,5 +25,4 @@ export default (sequelize) => {
     }
   );
 
-  return SaleDetail;
 };

@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 
 export default (sequelize) => {
-  const Product = sequelize.define(
+  return sequelize.define(
     "Product",
     {
       id: {
@@ -32,6 +32,4 @@ export default (sequelize) => {
       underscored: true,
     }
   );
-
-  return Product;
 };

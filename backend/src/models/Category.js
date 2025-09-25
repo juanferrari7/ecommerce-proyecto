@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 
 export default (sequelize) => {
-  const Category = sequelize.define(
+  return sequelize.define(
     "Category",
     {
       id: {
@@ -22,5 +22,4 @@ export default (sequelize) => {
     }
   );
 
-  return Category;
 };
