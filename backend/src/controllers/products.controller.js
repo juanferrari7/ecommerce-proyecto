@@ -1,13 +1,17 @@
-import Product from "../models/Product.js"
+import { Product } from '../db.js'
 
 export async function getProducts (req, res)  {
-  const projects = Product.findAll()
-  console.log(projects)
-  res.send('getting products', projects)
+  try {
+    const products = await Product.findAll();
+    res.json(products);
+  } catch (error) {
+    console.error("Error al obtener productos:", error);
+    res.status(500).json({ error: "Error al obtener los productos" });
+  }
 }
 export async function createProduct (req, res) {
   const {name, price, description, stock} = req.body
-  const product = Product.create({
+  const product = await Product.create({
     name,
     price,
     description,
@@ -16,12 +20,13 @@ export async function createProduct (req, res) {
   console.log(product)
   res.send('Product created succesfully')
 }
-export function deleteProduct (req, res) {
-  res.send('deleting products')
-}
-export function editProduct (req, res) {
-  res.send('editing products')
-}
-export function getProductById (req, res) {
-  res.send('getting product')
+
+export async function deleteProduct (req, res) {
+  try {
+    const { id } = req.params;
+    await Product.destroy({ where: { id } });
+    res.json({ message: "Producto eliminado correctamente" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 }

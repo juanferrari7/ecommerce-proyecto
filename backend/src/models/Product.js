@@ -1,5 +1,4 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from "../db.js";
 
 const Product = (sequelize) => {
   return sequelize.define(
