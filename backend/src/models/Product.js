@@ -1,6 +1,7 @@
 import { DataTypes } from "sequelize";
+import { sequelize } from "../db.js";
 
-export default (sequelize) => {
+const Product = (sequelize) => {
   return sequelize.define(
     "Product",
     {
@@ -23,7 +24,7 @@ export default (sequelize) => {
       stock: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        defaultValue: 0,
+        defaultValue: 1,
       },
     },
     {
@@ -33,3 +34,5 @@ export default (sequelize) => {
     }
   );
 };
+
+export default Product;

@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 
-export default (sequelize) => {
+const SaleDetail = (sequelize) => {
   return sequelize.define(
     "SaleDetail",
     {
@@ -26,3 +26,5 @@ export default (sequelize) => {
   );
 
 };
+
+export default SaleDetail;

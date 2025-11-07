@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 
-export default (sequelize) => {
+const Category = (sequelize) => {
   return sequelize.define(
     "Category",
     {
@@ -23,3 +23,5 @@ export default (sequelize) => {
   );
 
 };
+
+export default Category;

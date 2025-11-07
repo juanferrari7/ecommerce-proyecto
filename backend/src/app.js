@@ -2,6 +2,10 @@ import express from 'express'
 import productsRoutes from './routes/products.routes.js'
 
 const app = express()
+// middleware
+app.use(express.json())
+
+
 app.use(productsRoutes)
 
 // Ruta de prueba
