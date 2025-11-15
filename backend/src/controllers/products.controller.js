@@ -9,6 +9,23 @@ export async function getProducts (req, res)  {
     res.status(500).json({ error: "Error al obtener los productos" });
   }
 }
+
+export async function getProductById(req, res) {
+  try {
+    const { id } = req.params
+    const product = await Product.findByPk(id);
+
+    if (!product) {
+      return res.status(404).json({ error: "Producto no encontrado" });
+    }
+
+    res.json(product);
+  } catch (error) {
+    res.status(500).json({ error: "Error al obtener el producto" });
+  }
+}
+
+
 export async function createProduct (req, res) {
   const {name, price, description, stock} = req.body
   const product = await Product.create({
@@ -21,12 +38,37 @@ export async function createProduct (req, res) {
   res.send('Product created succesfully')
 }
 
+export async function updateProduct (req, res) {
+  try {
+    const {id} = req.params
+    const product = await Product.findByPk(id)
+
+    if(!product) {
+      return res.status(404).json({error: "Producto no encontrado"})
+    }
+
+    const {name, price, description, stock} = req.body
+
+    await product.update({name, price, description, stock})
+
+    res.json({message: "Producto actualizado", product})
+  } catch (error) {
+    res.status(500).json({error: "Error al actualizar el producto"})
+  }
+}
+
 export async function deleteProduct (req, res) {
   try {
     const { id } = req.params;
-    await Product.destroy({ where: { id } });
+    const product = await Product.findByPk(id)
+
+    if(!product) {
+      return res.status(404).json({ error: "Producto no encontrado"})
+    }    
+    await product.destroy()
     res.json({ message: "Producto eliminado correctamente" });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ error: "Error al eliminar el producto" });
   }
 }
+

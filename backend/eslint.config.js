@@ -14,5 +14,8 @@ export default [
         console: "readonly"
       },
     },
+    rules: {
+      "no-unused-vars": ["warn", {argsIgnorePattern: "^_"}]
+    }
   },
 ];
