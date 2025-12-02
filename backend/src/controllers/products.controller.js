@@ -27,15 +27,20 @@ export async function getProductById(req, res) {
 
 
 export async function createProduct (req, res) {
-  const {name, price, description, stock} = req.body
-  const product = await Product.create({
-    name,
-    price,
-    description,
-    stock
-  })
-  console.log(product)
-  res.send('Product created succesfully')
+  try {
+    const {name, price, description, stock} = req.body
+    const product = await Product.create({
+      name,
+      price,
+      description,
+      stock
+    })
+    console.log(product)
+    res.send('Producto creado correctamente')
+  } catch (error) {
+    console.error(error.message)
+    res.status(500).json({ error: "Error al crear el producto" });
+  }
 }
 
 export async function updateProduct (req, res) {

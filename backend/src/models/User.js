@@ -26,8 +26,9 @@ const User = (sequelize) => {
         allowNull: false,
       },
       role: {
-        type: DataTypes.INTEGER,
-        defaultValue: 3
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: 'customer'
       }
     },
     {
