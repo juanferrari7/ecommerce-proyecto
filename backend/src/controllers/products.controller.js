@@ -21,7 +21,7 @@ export async function getProductById(req, res) {
 
     res.json(product);
   } catch (error) {
-    res.status(500).json({ error: "Error al obtener el producto" });
+    res.status(500).json(error, { error: "Error al obtener el producto" });
   }
 }
 
@@ -74,7 +74,7 @@ export async function updateProduct (req, res) {
 
     res.json({message: "Producto actualizado", product})
   } catch (error) {
-    res.status(500).json({error: "Error al actualizar el producto"})
+    res.status(500).json(error, {error: "Error al actualizar el producto"})
   }
 }
 
@@ -89,7 +89,7 @@ export async function deleteProduct (req, res) {
     await product.destroy()
     res.json({ message: "Producto eliminado correctamente" });
   } catch (error) {
-    res.status(500).json({ error: "Error al eliminar el producto" });
+    res.status(500).json(error, { error: "Error al eliminar el producto" });
   }
 }
 
