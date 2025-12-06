@@ -40,5 +40,5 @@ SaleDetail.belongsTo(Sale, { foreignKey: "sale_id" });
 Product.hasMany(SaleDetail, { foreignKey: "product_id" });
 SaleDetail.belongsTo(Product, { foreignKey: "product_id" });
 
-Category.hasMany(Product, { foreignKey: "category_id" });
-Product.belongsTo(Category, { foreignKey: "category_id" });
+Category.hasMany(Product, { foreignKey: "categoryId" });
+Product.belongsTo(Category, { foreignKey: "categoryId" });

@@ -6,10 +6,12 @@ import {
   updateCategory,
   deleteCategory
 } from '../controllers/category.controller.js'
+import { getProductsByCategory } from '../controllers/products.controller.js'
 const router = Router()
 
 router.get('/categories', getCategories)
 router.get('/categories/:id', getCategoryById)
+router.get('/categories/:id/products', getProductsByCategory)
 router.post('/categories', createCategory)
 router.put('/categories/:id', updateCategory)
 router.delete('/categories/:id', deleteCategory)

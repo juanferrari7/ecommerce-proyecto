@@ -25,6 +25,14 @@ const Product = (sequelize) => {
         allowNull: false,
         defaultValue: 1,
       },
+      categoryId: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: {
+          model: "categories",
+          key: "id"
+        }
+    }
     },
     {
       tableName: "products",

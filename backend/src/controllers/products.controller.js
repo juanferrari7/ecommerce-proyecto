@@ -25,6 +25,22 @@ export async function getProductById(req, res) {
   }
 }
 
+export async function getProductsByCategory(req, res) {
+  try {
+    const { id } = req.params;
+    const products = await Product.findAll({
+      where: { categoryId: id }
+      // opcional: include: [{ model: Category, as: "category" }]
+    });
+
+    return res.status(200).json(products);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: "Error al obtener productos por categoría" });
+  }
+}
+
+
 
 export async function createProduct (req, res) {
   try {
@@ -52,9 +68,9 @@ export async function updateProduct (req, res) {
       return res.status(404).json({error: "Producto no encontrado"})
     }
 
-    const {name, price, description, stock} = req.body
+    const {name, price, description, stock, categoryId} = req.body
 
-    await product.update({name, price, description, stock})
+    await product.update({name, price, description, stock, categoryId})
 
     res.json({message: "Producto actualizado", product})
   } catch (error) {
