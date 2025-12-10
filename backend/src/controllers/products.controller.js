@@ -44,12 +44,13 @@ export async function getProductsByCategory(req, res) {
 
 export async function createProduct (req, res) {
   try {
-    const {name, price, description, stock} = req.body
+    const {name, price, description, stock, categoryId} = req.body
     const product = await Product.create({
       name,
       price,
       description,
-      stock
+      stock,
+      categoryId
     })
     console.log(product)
     res.send('Producto creado correctamente')
