@@ -12,7 +12,7 @@ app.use(cors({
   credentials: true
 }))
 app.use(express.json())
-app.use(express.static("public"))
+app.use('../public',express.static("public"))
 
 //rutas
 app.use(productsRoutes)
