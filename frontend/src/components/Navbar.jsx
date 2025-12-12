@@ -8,10 +8,10 @@ function Navbar () {
           MiEcommerce
         </Link>
 
-        <div>
-        </div>
+        <div className="flex gap-4">
           <Link to="/" className="hover:underline">Inicio</Link>
-          <Link to="/checkout" className="hover:underline">Carrito</Link>
+          <Link to="/checkout" className="hover:underline">Inicio</Link>
+        </div>
       </div>
     </nav>
   )
