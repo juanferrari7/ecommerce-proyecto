@@ -33,8 +33,8 @@ export default function Cart() {
           {cart.map((item, index) => (
             <div key={item.id} className="flex justify-between items-center p-3 border-b border-gray-600">
               <div>
-                <p className="font-semibold">{item.name}</p>
-                <p className="text-gray-400">${item.price}</p>
+                <p className="font-semibold text-gray-900">{item.name}</p>
+                <p className="text-gray-500">${item.price}</p>
               </div>
               <button
                 onClick={()=> removeFromCart(item.id)}
@@ -47,7 +47,7 @@ export default function Cart() {
             </div>
           ))}
 
-          <h2 className="text-xl font-bold mt-4">Total: ${total}</h2>
+          <h2 className="text-xl font-bold mt- text-gray-500">Total: ${total}</h2>
                     {/* Botones */}
           <div className="flex gap-4 mt-4">
             <button

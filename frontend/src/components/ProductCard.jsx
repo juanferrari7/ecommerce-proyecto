@@ -8,7 +8,7 @@ function ProductCard ({product}) {
   return (
     <div className="bg-white text-black rounded-xl shadow-md p-4 hover:shadow-xl transition-transform flex flex-col hover:scale-105">
       <img
-        src={product.image || "https://via.placeholder.com/200"}
+        src={`http://localhost:3000/public/${product.image}`}
         alt={product.name}
         className="rounded-lg mb-3 h-48 w-full object-cover"
       />

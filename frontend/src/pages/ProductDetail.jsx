@@ -22,25 +22,27 @@ function ProductDetail () {
   if (!product) return <p>Producto no encontrado</p>
 
   return (
-    <div className="max-w-5xl mx-auto p-6 text-white">
+    <div className="flex flex-col md:flex-row gap-10">
       <Link to="/" className="text-blue-400 hover:underline mb-4 inline-block">
         Volver
       </Link>
 
       <div className="bg-slate-50 p-6 rounded-xl shadow-md flex flex-col md:flex-row gap-10">
         {/* Imagen */}
+        <div className="flex-1">
+          <img
+            src={`http://localhost:3000/public/${product.image}`}
+            alt={product.name}
+            className="rounded-lg mb-3 h-108 w-full object-contain"
+          />
 
-        <img
-          src={product.image}
-          alt={product.name}
-          className="rounded-lg mb-3 h-48 w-full object-cover"
-        />
+        </div>
 
         {/* Informacion */}
-        <div className="flex-1">
+        <div className="flex-1 max-w-xl">
           <h1 className="text-lg font-semibold text-slate-900">{product.name}</h1>
 
-          <p className="text-slate-900 font-bold mt-2">{product.description || "Sin descripcion"}</p>
+          <p className="text-slate-900 mt-2">{product.description || "Sin descripcion"}</p>
 
           <p className="text-lg font-semibold text-slate-900">
             ${product.price}
