@@ -13,6 +13,10 @@ const Product = (sequelize) => {
         type: DataTypes.STRING(100),
         allowNull: false,
       },
+      image: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       price: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
